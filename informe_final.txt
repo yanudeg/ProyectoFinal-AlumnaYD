@@ -1,0 +1,54 @@
+# Informe final - Instagram Lite - Proyecto QA
+
+## 1. Resumen ejecutivo
+Este proyecto simula el trabajo de un **equipo QA ágil** sobre una app tipo “Instagram Lite” (mobile-first).
+Se definió alcance, se diseñaron y ejecutaron casos funcionales, se documentaron defectos y se realizaron pruebas de API con Postman (Fake Store API como API pública de referencia).
+
+**Fecha:** 2026-03-04  
+**Integrante:** Yanina Alexandra Degorgue
+
+## 2. Alcance y entorno
+### Alcance (qué se prueba)
+- Autenticación: login y recuperación de contraseña.
+- Feed: carga de posts, like, comentario.
+- Búsqueda de usuarios.
+- Perfil: edición de bio y foto.
+- Settings: toggle cuenta privada.
+- Publicación: upload de foto y descripción.
+- Manejo de errores: sin conexión / timeouts / validaciones front.
+
+### Fuera de alcance (qué NO se prueba)
+- Rendimiento a escala (stress/soak con miles de usuarios reales).
+- Seguridad avanzada (pentesting, OWASP completo).
+- Integraciones con servicios reales de notificaciones/pagos.
+
+### Entorno de prueba (simulado)
+- Dispositivo: iPhone (iOS) y Android (emulador).
+- Red: WiFi y 4G/5G (simulado con throttling).
+- Build: versión “QA build” 1.0.0 (demo).
+
+## 3. Estrategia de testing
+- Diseño de casos por funcionalidades (happy path + negativos + validaciones).
+- Priorización por riesgo (login, feed, publicación).
+- Evidencias: capturas / logs / IDs referenciados en planillas.
+
+## 4. Resultados (resumen)
+- Casos funcionales diseñados: **30** (mínimo requerido cumplido).
+- Ejecución registrada con estados: OK / FAIL / BLOQUEADO.
+- Defectos reportados: **3** (mínimo requerido cumplido).
+- API testing: **10** casos con endpoints positivos (GET/POST/PUT), negativos y validación de estructura JSON.
+
+## 5. Defectos críticos (highlights)
+- BUG-01: Like incrementa contador pero no persiste al volver al feed (impacta interacción básica).
+- BUG-02: Comentario vacío se envía si contiene solo espacios (validación).
+- BUG-03: Toggle de cuenta privada no persiste tras reiniciar la app (settings inconsistente).
+
+## 6. Recomendaciones
+- Agregar pruebas automáticas básicas (smoke) para login/feed/publicación.
+- Mejorar manejo offline y reintentos con feedback claro.
+- Revisar persistencia de estados (likes, privacidad) con almacenamiento local + sincronización.
+
+## 7. Conclusión general
+El producto **NO está listo para producción** sin corregir los defectos mencionados, porque afectan funciones core (interacción y settings).
+Con correcciones y un re-test del smoke principal, podría considerarse un release limitado (beta).
+

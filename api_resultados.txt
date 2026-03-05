@@ -1,0 +1,20 @@
+# Resultados API Testing (Fake Store API) - 2026-03-04
+
+API pública utilizada: https://fakestoreapi.com/
+
+## Resumen
+Se ejecutaron 10 casos de prueba sobre endpoints principales.
+- 3 positivos: GET, POST, PUT
+- 1 negativo: recurso inexistente / validación
+- 1 validación de estructura JSON
+- Resto: combinaciones para cubrir filtros y casos de borde
+
+## Hallazgos
+- Los endpoints GET responden con estructura consistente (array de productos / objeto producto).
+- En casos negativos, se verifica código 404 o manejo esperado según endpoint.
+- Validación de JSON: campos mínimos esperados presentes (id, title, price, category, description, image).
+
+## Evidencia
+Capturas de Postman guardadas en:
+/api_testing/capturas/  (referenciadas por nombre en la planilla casos_api.xlsx)
+
